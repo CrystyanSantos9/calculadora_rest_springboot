@@ -1,17 +1,17 @@
-package dev.cryss.foo;
+package dev.cryss.calculadora;
 
 public class Greeting {
 
-    private long number;
-    private String name;
-
-    public String getName() {
-        return name;
-    }
+    private final long number;
+    private final String name;
 
     public Greeting(long number, String name) {
         this.name = name;
         this.number = number;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public long getNumber() {

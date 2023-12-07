@@ -1,4 +1,4 @@
-package dev.cryss.foo;
+package dev.cryss.calculadora;
 
 import dev.cryss.exception.UnsuportedMathOperationException;
 import dev.cryss.utils.converters.NumberConverter;
@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MathController {
-
-
     private NumberConverter numberConverter;
 
     @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)

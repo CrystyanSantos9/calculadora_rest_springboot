@@ -1,4 +1,4 @@
-package dev.cryss.foo;
+package dev.cryss.calculadora;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
