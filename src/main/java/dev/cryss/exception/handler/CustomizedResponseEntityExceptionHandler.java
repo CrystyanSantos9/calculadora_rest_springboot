@@ -13,7 +13,7 @@ import java.util.Date;
 
 @RestControllerAdvice
 public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
-    @ExceptionHandler(Exception.class) //
+    @ExceptionHandler(Exception.class)
     public final ResponseEntity<ExceptionResponse> handleAllException(Exception ex, WebRequest request) {
         ExceptionResponse exceptionResponse =
                 new ExceptionResponse (
@@ -24,7 +24,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         return new ResponseEntity<> (exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(value = UnsuportedMathOperationException.class) //
+    @ExceptionHandler(UnsuportedMathOperationException.class) //
     public final ResponseEntity<ExceptionResponse> handleBadRequestException(UnsuportedMathOperationException ex, WebRequest request) {
         ExceptionResponse exceptionResponse =
                 new ExceptionResponse (
