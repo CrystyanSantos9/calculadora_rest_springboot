@@ -1,6 +1,9 @@
 package dev.cryss.foo;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MathController {
@@ -17,7 +20,7 @@ public class MathController {
     private Double convertToDouble(String strNumber) {
         if (strNumber == null) return 0D;
         String number = strNumber.replace (",", ".");
-        if (isNumeric(number)) return Double.parseDouble (number);
+        if (isNumeric (number)) return Double.parseDouble (number);
         return 0D;
     }
 
@@ -30,5 +33,4 @@ public class MathController {
 
     }
 
-}
 }
