@@ -1,4 +1,4 @@
-package dev.cryss.utils.converters;
+package dev.cryss.requests.converters;
 
 import org.springframework.stereotype.Component;
 
