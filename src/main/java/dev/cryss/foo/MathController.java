@@ -10,7 +10,7 @@ public class MathController {
     @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
         if (!isNumeric (numberOne) || !isNumeric (numberTwo)) {
-            throw new Exception ();
+            throw new UnsupportedOperationException ("Please set a numeric value!");
         }
 
         Double sum = convertToDouble (numberOne) + convertToDouble (numberTwo);
@@ -29,7 +29,7 @@ public class MathController {
         if (strNumber == null) return false;
 
         String number = strNumber.replace (",", ".");
-        
+
         return number.matches ("[-+]?[0-9]*\\.?[0-9]+");
     }
 
