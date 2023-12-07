@@ -1,6 +1,7 @@
 package dev.cryss.foo;
 
 import dev.cryss.exception.UnsuportedMathOperationException;
+import dev.cryss.utils.converters.NumberConverter;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,30 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MathController {
+
+
+    private NumberConverter numberConverter;
+
     @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
-        if (!isNumeric (numberOne) || !isNumeric (numberTwo)) {
+
+        if (!NumberConverter.isNumeric (numberOne) || !NumberConverter.isNumeric (numberTwo)) {
             throw new UnsuportedMathOperationException ("Please set a numeric value!");
         }
 
-        Double sum = convertToDouble (numberOne) + convertToDouble (numberTwo);
+        Double sum = NumberConverter.convertToDouble (numberOne) + NumberConverter.convertToDouble (numberTwo);
         return sum;
     }
 
-    private Double convertToDouble(String strNumber) {
-        if (strNumber == null) return 0D;
-        String number = strNumber.replace (",", ".");
-        if (isNumeric (number)) return Double.parseDouble (number);
-        return 0D;
-    }
-
-    private boolean isNumeric(String strNumber) {
-
-        if (strNumber == null) return false;
-
-        String number = strNumber.replace (",", ".");
-
-        return number.matches ("[-+]?[0-9]*\\.?[0-9]+");
-    }
 
 }
