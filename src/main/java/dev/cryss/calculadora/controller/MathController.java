@@ -1,4 +1,4 @@
-package dev.cryss.calculadora;
+package dev.cryss.calculadora.controller;
 
 import dev.cryss.calculadora.service.MathOperation.MathService;
 import dev.cryss.exception.UnsuportedMathOperationException;
